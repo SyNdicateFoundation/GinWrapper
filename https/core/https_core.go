@@ -1,9 +1,10 @@
 package https_core
 
 import (
-	"SyNdicateBackend/common/configuration"
-	"SyNdicateBackend/common/logger"
+	"GinWrapper/common/configuration"
+	"GinWrapper/common/logger"
 	"fmt"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -17,7 +18,7 @@ func middleware(context *gin.Context) {
 	context.Next()
 }
 
-func (H *HttpsServer) ListenAndServe() {
+func (H *HttpsServer) ListenAndServe(templatesDir string, assetsDir string) {
 	httpConfig := configuration.ConfigHolder.HTTPSServer
 
 	if !httpConfig.Enabled {
@@ -28,8 +29,8 @@ func (H *HttpsServer) ListenAndServe() {
 
 	H.Router = gin.New()
 	H.Router.Use(middleware)
-	H.Router.LoadHTMLGlob("assets/templates/*")
-	H.Router.Static("/assets", "./assets")
+	H.Router.LoadHTMLGlob(templatesDir)
+	H.Router.Static(assetsDir, assetsDir)
 
 	//Handling 404 error
 	if unknw, ok := responses["not-found-screen"]; ok {

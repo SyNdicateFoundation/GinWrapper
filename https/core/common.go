@@ -1,10 +1,11 @@
 package https_core
 
 import (
-	"SyNdicateBackend/common/logger"
+	"GinWrapper/common/logger"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"time"
+
+	"github.com/gin-gonic/gin"
 )
 
 func LogInfo(s string) {

@@ -1,4 +1,4 @@
-module SyNdicateBackend
+module GinWrapper
 
 go 1.24
 
