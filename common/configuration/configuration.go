@@ -1,7 +1,7 @@
 package configuration
 
 import (
-	"GinWrapper/common/logger"
+	"github.com/SyNdicateFoundation/GinWrapper/common/logger"
 	"os"
 
 	"github.com/BurntSushi/toml"

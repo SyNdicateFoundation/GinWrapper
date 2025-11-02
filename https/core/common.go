@@ -1,8 +1,8 @@
 package https_core
 
 import (
-	"GinWrapper/common/logger"
 	"fmt"
+	"github.com/SyNdicateFoundation/GinWrapper/common/logger"
 	"time"
 
 	"github.com/gin-gonic/gin"
