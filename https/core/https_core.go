@@ -33,13 +33,13 @@ func (H *HttpsServer) ListenAndServe(templatesDir string, assetsDir string) {
 	H.Router.Static(assetsDir, assetsDir)
 
 	//Handling 404 error
-	if unknw, ok := responses["not-found-screen"]; ok {
+	if unknw, ok := Responses["not-found-screen"]; ok {
 		H.Router.NoRoute(unknw.fn)
-		delete(responses, "not-found-screen")
+		delete(Responses, "not-found-screen")
 	}
 
 	//Registering the Paths and responses
-	for name, req := range responses {
+	for name, req := range Responses {
 		for _, address := range req.addresses {
 			logger.Logger.Debug(fmt.Sprintf("Registering Route -> %s - %s <-", name, address))
 			H.Router.Handle(req.method, address, req.fn)
