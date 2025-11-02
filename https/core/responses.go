@@ -7,19 +7,19 @@ import (
 )
 
 type Response struct {
-	fn        gin.HandlerFunc
-	method    string
-	addresses []string
-	protected bool
+	Fn        gin.HandlerFunc
+	Method    string
+	Addresses []string
+	Protected bool
 }
 
 var (
 	Responses = map[string]Response{
 		"not-found-screen": {
-			fn: func(c *gin.Context) {
+			Fn: func(c *gin.Context) {
 				c.HTML(http.StatusNotFound, "not-found.html", nil)
 			},
-			method: "GET",
+			Method: "GET",
 		},
 	}
 )
