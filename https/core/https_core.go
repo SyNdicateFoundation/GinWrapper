@@ -30,7 +30,7 @@ func (H *HttpsServer) ListenAndServe(templatesDir string, assetsDir string) {
 	H.Router = gin.New()
 	H.Router.Use(middleware)
 	H.Router.LoadHTMLGlob(templatesDir)
-	H.Router.Static(assetsDir, assetsDir)
+	H.Router.Static(assetsDir, "."+assetsDir)
 
 	//Handling 404 error
 	if unknw, ok := Responses["not-found-screen"]; ok {
